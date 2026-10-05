@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: iirre/Firefly
+  branch: master
+  base_url: https://firefly-auth.acgr18share.workers.dev
+  auth_endpoint: /auth
+  app_id: Ov23li3oBf88QVLbFeUb
+
+media_folder: "public/assets/cms"
+public_folder: "/assets/cms"
+
+collections:
+  - name: "posts"
+    label: "文章"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "published", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "置顶", name: "pinned", widget: "boolean", required: false, default: false}
+      - {label: "描述", name: "description", widget: "text", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "分类", name: "category", widget: "string", required: false}
+      - {label: "封面图", name: "image", widget: "image", required: false}
+      - {label: "别名", name: "slug", widget: "string", required: false}
+      - {label: "正文", name: "body", widget: "markdown"}
