@@ -4,6 +4,13 @@ import {
 	type NavBarSearchConfig,
 	NavBarSearchMethod,
 } from "../types/navBarConfig";
+import navlinksData from "../data/cms/navlinks.json";
+
+const cmsNav = navlinksData as unknown as {
+	menuName: string;
+	menuIcon: string;
+	links: Array<{ name: string; url: string; icon: string }>;
+};
 
 // ============================================================================
 // 导航栏配置 - 根据顺序动态生成导航栏链接
@@ -96,32 +103,18 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 自定义导航栏链接
+	// 自定义导航栏链接（可在后台 /admin 中修改）
 	links.push({
-		name: "链接",
+		name: cmsNav.menuName || "链接",
 		url: "#",
-		icon: "material-symbols:link",
+		icon: cmsNav.menuIcon || "material-symbols:link",
 		// 子菜单
-		children: [
-			{
-				name: "GitHub",
-				url: "https://github.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-			{
-				name: "Gitee",
-				url: "https://gitee.com/CuteLeaf/Firefly",
-				external: true,
-				icon: "fa7-brands:gitee",
-			},
-			{
-				name: "Firefly文档",
-				url: "https://docs-firefly.cuteleaf.cn",
-				external: true,
-				icon: "material-symbols:docs",
-			},
-		],
+		children: cmsNav.links.map((l) => ({
+			name: l.name,
+			url: l.url,
+			external: true,
+			icon: l.icon,
+		})),
 	});
 
 	// 文档链接

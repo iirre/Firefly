@@ -633,3 +633,32 @@ collections:
     - label: 许可链接
       name: url
       widget: string
+- name: navlinks
+  label: 导航栏外链
+  files:
+  - name: navlinks
+    label: 链接菜单
+    file: src/data/cms/navlinks.json
+    fields:
+    - label: 菜单名称
+      name: menuName
+      widget: string
+      default: 链接
+    - label: 菜单图标
+      name: menuIcon
+      widget: string
+      default: material-symbols:link
+    - label: 外链列表
+      name: links
+      widget: list
+      fields:
+      - label: 名称
+        name: name
+        widget: string
+      - label: 链接
+        name: url
+        widget: string
+      - label: 图标
+        name: icon
+        widget: string
+        hint: 如 fa7-brands:github
