@@ -261,3 +261,16 @@ collections:
         fields:
           - {label: "樱花飘落特效", name: "enable", widget: "boolean", default: false}
           - {label: "樱花数量", name: "sakuraNum", widget: "number", min: 1, max: 100, default: 21}
+      - name: "banner"
+        label: "首页横幅"
+        file: "src/data/cms/banner.json"
+        fields:
+          - {label: "主标题", name: "title", widget: "string"}
+          - {label: "副标题（打字机轮播）", name: "subtitle", widget: "list", hint: "每条一行，首页轮播显示"}
+      - name: "license"
+        label: "文章许可"
+        file: "src/data/cms/license.json"
+        fields:
+          - {label: "启用", name: "enable", widget: "boolean", default: true}
+          - {label: "许可名称", name: "name", widget: "string", hint: "如 CC BY-NC-SA 4.0"}
+          - {label: "许可链接", name: "url", widget: "string"}

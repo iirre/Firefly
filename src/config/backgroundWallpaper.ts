@@ -1,7 +1,9 @@
 import type { BackgroundWallpaperConfig } from "@/types/backgroundWallpaper";
 import wpData from "../data/cms/wallpaper.json";
+import bannerData from "../data/cms/banner.json";
 
 const cmsWp = wpData as unknown as { mode: string; playerEnable: boolean };
+const cmsBanner = bannerData as unknown as { title: string; subtitle: string[] };
 
 export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	// 壁纸模式："banner" 横幅壁纸，"fullscreen" 全屏壁纸，"overlay" 覆盖透明，"none" 纯色背景无壁纸
@@ -75,12 +77,12 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		homeText: {
 			// 是否启用主页横幅文字
 			enable: true,
-			// 主页横幅主标题
-			title: "Lovely firefly!",
+			// 主页横幅主标题（可在后台 /admin 中修改）
+			title: cmsBanner.title || "Lovely firefly!",
 			// 主页横幅主标题字体大小
 			titleSize: "4.5rem",
-			// 主页横幅副标题
-			subtitle: [
+			// 主页横幅副标题（打字机轮播，可在后台 /admin 中修改）
+			subtitle: cmsBanner.subtitle?.length ? cmsBanner.subtitle : [
 				"In Reddened Chrysalis, I Once Rest",
 				"From Shattered Sky, I Free Fall",
 				"Amidst Silenced Stars, I Deep Sleep",
