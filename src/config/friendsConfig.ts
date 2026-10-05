@@ -1,7 +1,6 @@
 import type { FriendLink, FriendsPageConfig } from "../types/friendsConfig";
-import friendsData from "../data/cms/friends.json";
-
-// 可以在src/content/spec/friends.md中编写友链页面下方的自定义内容
+import friendsJson from "../data/cms/friends.json?raw";
+const friendsData = JSON.parse(friendsJson);
 
 // 友链页面配置（可在后台 /admin 中修改）
 export const friendsPageConfig: FriendsPageConfig = {
@@ -13,4 +12,4 @@ export const friendsPageConfig: FriendsPageConfig = {
 };
 
 // 友链配置（可在后台 /admin 中修改）
-export const friendsConfig: FriendLink[] = friendsData.list as FriendLink[];
+export const friendsConfig: FriendLink[] = friendsData.list;
