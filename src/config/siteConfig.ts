@@ -1,8 +1,8 @@
 import type { SiteConfig } from "@/types/siteConfig";
 import { resolvePageToggles } from "../utils/page-toggle-utils";
 import { resolveSiteLang } from "../utils/site-config-utils";
-import siteJson from "../data/cms/site.json?raw";
-const siteData = JSON.parse(siteJson);
+import siteJsonData from "../data/cms/site.json";
+const siteData = siteJsonData as unknown as { title: string; subtitle: string; description: string; keywords: string[] };
 
 // 定义站点语言
 // 语言代码，例如：'zh_CN', 'zh_TW', 'en', 'ja', 'ru', 'ko'。
