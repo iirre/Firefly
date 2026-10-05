@@ -27,3 +27,102 @@ collections:
       - {label: "封面图", name: "image", widget: "image", required: false}
       - {label: "别名", name: "slug", widget: "string", required: false}
       - {label: "正文", name: "body", widget: "markdown"}
+
+  - name: "settings"
+    label: "网站设置"
+    files:
+      - name: "site"
+        label: "站点信息"
+        file: "src/data/cms/site.json"
+        fields:
+          - {label: "站点标题", name: "title", widget: "string"}
+          - {label: "副标题", name: "subtitle", widget: "string"}
+          - {label: "站点描述", name: "description", widget: "text"}
+          - {label: "关键词", name: "keywords", widget: "list"}
+      - name: "profile"
+        label: "个人资料"
+        file: "src/data/cms/profile.json"
+        fields:
+          - {label: "头像", name: "avatar", widget: "image", required: false}
+          - {label: "名字", name: "name", widget: "string"}
+          - {label: "签名", name: "bio", widget: "text"}
+          - label: "社交链接"
+            name: "links"
+            widget: "list"
+            fields:
+              - {label: "名称", name: "name", widget: "string"}
+              - {label: "图标", name: "icon", widget: "string", hint: "如 fa7-brands:github，见 icones.js.org"}
+              - {label: "链接", name: "url", widget: "string"}
+              - {label: "显示名称", name: "showName", widget: "boolean", default: false}
+      - name: "announcement"
+        label: "公告"
+        file: "src/data/cms/announcement.json"
+        fields:
+          - {label: "公告标题（空则用默认）", name: "title", widget: "string", required: false}
+          - {label: "公告内容", name: "content", widget: "text"}
+          - {label: "允许关闭", name: "closable", widget: "boolean", default: true}
+          - label: "链接"
+            name: "link"
+            widget: "object"
+            fields:
+              - {label: "启用", name: "enable", widget: "boolean", default: false}
+              - {label: "文本", name: "text", widget: "string", required: false}
+              - {label: "地址", name: "url", widget: "string", required: false}
+              - {label: "外部链接", name: "external", widget: "boolean", default: false}
+      - name: "music"
+        label: "音乐播放器"
+        file: "src/data/cms/music.json"
+        fields:
+          - {label: "导航栏显示", name: "showInNavbar", widget: "boolean", default: true}
+          - {label: "侧边栏显示", name: "showInSidebar", widget: "boolean", default: true}
+          - {label: "模式", name: "mode", widget: "select", options: ["local", "meting"], default: "local", hint: "local=本地列表，meting=在线API"}
+          - {label: "音量", name: "volume", widget: "number", min: 0, max: 1, step: 0.1, default: 0.7}
+          - {label: "播放模式", name: "playMode", widget: "select", options: ["list", "one", "random"], default: "list", hint: "list=列表循环 one=单曲循环 random=随机"}
+          - {label: "显示歌词", name: "showLyrics", widget: "boolean", default: false}
+          - label: "Meting API 配置"
+            name: "meting"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "API地址", name: "api", widget: "string"}
+              - {label: "平台", name: "server", widget: "select", options: ["netease", "tencent", "kugou", "baidu"], default: "netease"}
+              - {label: "类型", name: "type", widget: "select", options: ["song", "playlist", "album"], default: "playlist"}
+              - {label: "歌单ID", name: "id", widget: "string"}
+          - label: "本地歌单"
+            name: "local"
+            widget: "object"
+            fields:
+              - label: "歌曲列表"
+                name: "playlist"
+                widget: "list"
+                fields:
+                  - {label: "歌名", name: "name", widget: "string"}
+                  - {label: "歌手", name: "artist", widget: "string"}
+                  - {label: "音频文件", name: "url", widget: "file", hint: "上传mp3到 public/assets/music/"}
+                  - {label: "封面", name: "cover", widget: "image", required: false}
+                  - {label: "歌词", name: "lrc", widget: "text", required: false}
+      - name: "friends"
+        label: "友链"
+        file: "src/data/cms/friends.json"
+        fields:
+          - label: "页面设置"
+            name: "page"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "标题（空则用默认）", name: "title", widget: "string", required: false}
+              - {label: "描述（空则用默认）", name: "description", widget: "string", required: false}
+              - {label: "显示自定义内容", name: "showCustomContent", widget: "boolean", default: true}
+              - {label: "显示评论", name: "showComment", widget: "boolean", default: true}
+              - {label: "随机排序", name: "randomizeSort", widget: "boolean", default: false}
+          - label: "友链列表"
+            name: "list"
+            widget: "list"
+            fields:
+              - {label: "名称", name: "title", widget: "string"}
+              - {label: "头像", name: "imgurl", widget: "image"}
+              - {label: "描述", name: "desc", widget: "text"}
+              - {label: "网址", name: "siteurl", widget: "string"}
+              - {label: "标签", name: "tags", widget: "list", required: false}
+              - {label: "权重（越大越靠前）", name: "weight", widget: "number", default: 0}
+              - {label: "启用", name: "enabled", widget: "boolean", default: true}

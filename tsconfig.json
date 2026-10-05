@@ -37,7 +37,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": [
     ".astro/types.d.ts",
