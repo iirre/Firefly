@@ -1,12 +1,15 @@
 import type { CommentConfig } from "../types/commentConfig";
+import commentData from "../data/cms/comment.json";
+
+const cms = commentData as unknown as { type: string; twikoo: any; waline: any; giscus: any; disqus: any; artalk: any };
 
 export const commentConfig: CommentConfig = {
 	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
-	type: "none",
+	type: (cms.type as CommentConfig["type"]) || "none",
 
 	//twikoo评论系统配置
 	twikoo: {
-		envId: "https://twikoo.vercel.app",
+		envId: cms.twikoo?.envId || "https://twikoo.vercel.app",
 		// 设置 Twikoo 评论系统语言
 		lang: "zh-CN",
 		// 是否启用文章访问量统计功能
@@ -23,7 +26,7 @@ export const commentConfig: CommentConfig = {
 	//waline评论系统配置
 	waline: {
 		// waline 后端服务地址
-		serverURL: "https://waline.vercel.app",
+		serverURL: cms.waline?.serverURL || "https://waline.vercel.app",
 		// 设置 Waline 评论系统语言
 		lang: "zh-CN",
 		// 设置 Waline 评论系统表情地址

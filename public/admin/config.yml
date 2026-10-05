@@ -126,3 +126,81 @@ collections:
               - {label: "标签", name: "tags", widget: "list", required: false}
               - {label: "权重（越大越靠前）", name: "weight", widget: "number", default: 0}
               - {label: "启用", name: "enabled", widget: "boolean", default: true}
+      - name: "sponsor"
+        label: "打赏设置"
+        file: "src/data/cms/sponsor.json"
+        fields:
+          - {label: "标题（空则用默认）", name: "title", widget: "string", required: false}
+          - {label: "描述（空则用默认）", name: "description", widget: "string", required: false}
+          - {label: "打赏用途说明", name: "usage", widget: "text"}
+          - {label: "显示打赏者列表", name: "showSponsorsList", widget: "boolean", default: true}
+          - {label: "显示评论区", name: "showComment", widget: "boolean", default: true}
+          - {label: "文章底部显示打赏按钮", name: "showButtonInPost", widget: "boolean", default: true}
+          - label: "打赏方式"
+            name: "methods"
+            widget: "list"
+            fields:
+              - {label: "名称", name: "name", widget: "string"}
+              - {label: "图标", name: "icon", widget: "string", hint: "如 fa7-brands:alipay"}
+              - {label: "收款码图片", name: "qrCode", widget: "image", required: false}
+              - {label: "跳转链接", name: "link", widget: "string", required: false}
+              - {label: "描述", name: "description", widget: "string", required: false}
+              - {label: "启用", name: "enabled", widget: "boolean", default: true}
+      - name: "gallery"
+        label: "相册管理"
+        file: "src/data/cms/gallery.json"
+        fields:
+          - {label: "瀑布流列宽(px)", name: "columnWidth", widget: "number", default: 240}
+          - label: "相册列表"
+            name: "albums"
+            widget: "list"
+            fields:
+              - {label: "ID（对应 public/gallery/ 下目录名）", name: "id", widget: "string"}
+              - {label: "相册名称", name: "name", widget: "string"}
+              - {label: "描述", name: "description", widget: "text", required: false}
+              - {label: "地点", name: "location", widget: "string", required: false}
+              - {label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false}
+              - {label: "标签", name: "tags", widget: "list", required: false}
+              - {label: "访问密码（空则公开）", name: "password", widget: "string", required: false}
+              - {label: "密码提示", name: "passwordHint", widget: "string", required: false}
+      - name: "comment"
+        label: "评论设置"
+        file: "src/data/cms/comment.json"
+        fields:
+          - {label: "评论系统", name: "type", widget: "select", options: ["none", "twikoo", "waline", "giscus", "disqus", "artalk"], default: "none"}
+          - label: "Twikoo 配置"
+            name: "twikoo"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "服务地址", name: "envId", widget: "string"}
+              - {label: "语言", name: "lang", widget: "string", default: "zh-CN"}
+          - label: "Waline 配置"
+            name: "waline"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "服务地址", name: "serverURL", widget: "string"}
+              - {label: "语言", name: "lang", widget: "string", default: "zh-CN"}
+          - label: "Giscus 配置"
+            name: "giscus"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "仓库", name: "repo", widget: "string"}
+              - {label: "Repo ID", name: "repoId", widget: "string"}
+              - {label: "分类", name: "category", widget: "string"}
+              - {label: "Category ID", name: "categoryId", widget: "string"}
+          - label: "Disqus 配置"
+            name: "disqus"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Shortname", name: "shortname", widget: "string"}
+          - label: "Artalk 配置"
+            name: "artalk"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "服务地址", name: "server", widget: "string"}
+              - {label: "站点名", name: "site", widget: "string"}

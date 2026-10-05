@@ -1,0 +1,24 @@
+{
+  "type": "none",
+  "twikoo": {
+    "envId": "https://twikoo.vercel.app",
+    "lang": "zh-CN"
+  },
+  "waline": {
+    "serverURL": "https://waline.vercel.app",
+    "lang": "zh-CN"
+  },
+  "giscus": {
+    "repo": "",
+    "repoId": "",
+    "category": "",
+    "categoryId": ""
+  },
+  "disqus": {
+    "shortname": ""
+  },
+  "artalk": {
+    "server": "",
+    "site": ""
+  }
+}
