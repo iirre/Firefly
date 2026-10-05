@@ -1,0 +1,16 @@
+{
+  "enable": false,
+  "model": {
+    "path": "/pio/models/live2d/",
+    "scale": 1.0
+  },
+  "position": {
+    "corner": "bottom-left",
+    "offsetX": 0,
+    "offsetY": 0
+  },
+  "size": {
+    "width": 135,
+    "height": 165
+  }
+}

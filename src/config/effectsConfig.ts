@@ -1,13 +1,16 @@
 import type { SakuraConfig } from "../types/effectsConfig";
+import effData from "../data/cms/effects.json";
+
+const cmsEff = effData as unknown as { enable: boolean; sakuraNum: number };
 
 // 特效配置 - 集中管理所有动画特效
 
 export const sakuraConfig: SakuraConfig = {
 	// 是否启用樱花特效
-	enable: false,
+	enable: cmsEff.enable ?? false,
 
 	// 樱花数量
-	sakuraNum: 21,
+	sakuraNum: cmsEff.sakuraNum ?? 21,
 
 	// 樱花越界限制次数，-1为无限循环
 	limitTimes: -1,
