@@ -28,7 +28,7 @@
       "showName": false
     },
     {
-      "showName": true,
+      "showName": false,
       "name": "Openlist",
       "url": "https://openlist.iivvc.com/",
       "icon": "material-symbols:cloud"
