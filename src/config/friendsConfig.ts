@@ -13,3 +13,14 @@ export const friendsPageConfig: FriendsPageConfig = {
 
 // 友链配置（可在后台 /admin 中修改）
 export const friendsConfig: FriendLink[] = friendsData.list;
+
+// 获取已启用的友链（按权重排序）
+export const getEnabledFriends = (): FriendLink[] => {
+	const friends = friendsConfig.filter((friend) => friend.enabled);
+
+	if (friendsPageConfig.randomizeSort) {
+		return friends.sort(() => Math.random() - 0.5);
+	}
+
+	return friends.sort((a, b) => b.weight - a.weight);
+};
