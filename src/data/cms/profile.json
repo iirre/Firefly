@@ -26,6 +26,12 @@
       "icon": "fa7-solid:atom",
       "url": "/atom/",
       "showName": false
+    },
+    {
+      "showName": true,
+      "name": "Openlist",
+      "url": "https://openlist.iivvc.com/",
+      "icon": "material-symbols:cloud"
     }
   ]
 }
