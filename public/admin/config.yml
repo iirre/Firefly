@@ -204,73 +204,73 @@ collections:
             fields:
               - {label: "服务地址", name: "server", widget: "string"}
               - {label: "站点名", name: "site", widget: "string"}
-      - name: "pio"
-        label: "看板娘"
-        files:
-          - name: "spine"
-            label: "Spine 模型"
-            file: "src/data/cms/pio-spine.json"
+  - name: "pio"
+    label: "看板娘"
+    files:
+      - name: "spine"
+        label: "Spine 模型"
+        file: "src/data/cms/pio-spine.json"
+        fields:
+          - {label: "启用", name: "enable", widget: "boolean", default: false}
+          - label: "模型"
+            name: "model"
+            widget: "object"
             fields:
-              - {label: "启用", name: "enable", widget: "boolean", default: false}
-              - label: "模型"
-                name: "model"
-                widget: "object"
-                fields:
-                  - {label: "模型路径", name: "path", widget: "string"}
-                  - {label: "缩放", name: "scale", widget: "number", min: 0.1, max: 3, step: 0.1, default: 1.0}
-              - label: "位置"
-                name: "position"
-                widget: "object"
-                fields:
-                  - {label: "角落", name: "corner", widget: "select", options: ["bottom-left", "bottom-right", "top-left", "top-right"], default: "bottom-left"}
-                  - {label: "水平偏移", name: "offsetX", widget: "number", default: 0}
-                  - {label: "垂直偏移", name: "offsetY", widget: "number", default: 0}
-              - label: "尺寸"
-                name: "size"
-                widget: "object"
-                fields:
-                  - {label: "宽度", name: "width", widget: "number", default: 135}
-                  - {label: "高度", name: "height", widget: "number", default: 165}
-          - name: "live2d"
-            label: "Live2D 模型"
-            file: "src/data/cms/pio-live2d.json"
+              - {label: "模型路径", name: "path", widget: "string"}
+              - {label: "缩放", name: "scale", widget: "number", min: 0.1, max: 3, step: 0.1, default: 1.0}
+          - label: "位置"
+            name: "position"
+            widget: "object"
             fields:
-              - {label: "启用", name: "enable", widget: "boolean", default: false}
-              - label: "模型"
-                name: "model"
-                widget: "object"
-                fields:
-                  - {label: "模型路径", name: "path", widget: "string"}
-                  - {label: "缩放", name: "scale", widget: "number", min: 0.1, max: 3, step: 0.1, default: 1.0}
-              - label: "位置"
-                name: "position"
-                widget: "object"
-                fields:
-                  - {label: "角落", name: "corner", widget: "select", options: ["bottom-left", "bottom-right", "top-left", "top-right"], default: "bottom-left"}
-      - name: "wallpaper"
-        label: "背景壁纸"
-        file: "src/data/cms/wallpaper.json"
+              - {label: "角落", name: "corner", widget: "select", options: ["bottom-left", "bottom-right", "top-left", "top-right"], default: "bottom-left"}
+              - {label: "水平偏移", name: "offsetX", widget: "number", default: 0}
+              - {label: "垂直偏移", name: "offsetY", widget: "number", default: 0}
+          - label: "尺寸"
+            name: "size"
+            widget: "object"
+            fields:
+              - {label: "宽度", name: "width", widget: "number", default: 135}
+              - {label: "高度", name: "height", widget: "number", default: 165}
+      - name: "live2d"
+        label: "Live2D 模型"
+        file: "src/data/cms/pio-live2d.json"
         fields:
-          - {label: "模式", name: "mode", widget: "select", options: ["banner", "full"], default: "banner", hint: "banner=横幅模式 full=全屏背景"}
-          - {label: "启用壁纸切换器", name: "playerEnable", widget: "boolean", default: true}
-          - {label: "桌面壁纸", name: "desktop", widget: "image", hint: "上传到 public/assets/ 下"}
-          - {label: "移动端壁纸", name: "mobile", widget: "image", hint: "上传到 public/assets/ 下"}
-      - name: "effects"
-        label: "特效"
-        file: "src/data/cms/effects.json"
-        fields:
-          - {label: "樱花飘落特效", name: "enable", widget: "boolean", default: false}
-          - {label: "樱花数量", name: "sakuraNum", widget: "number", min: 1, max: 100, default: 21}
-      - name: "banner"
-        label: "首页横幅"
-        file: "src/data/cms/banner.json"
-        fields:
-          - {label: "主标题", name: "title", widget: "string"}
-          - {label: "副标题（打字机轮播）", name: "subtitle", widget: "list", hint: "每条一行，首页轮播显示"}
-      - name: "license"
-        label: "文章许可"
-        file: "src/data/cms/license.json"
-        fields:
-          - {label: "启用", name: "enable", widget: "boolean", default: true}
-          - {label: "许可名称", name: "name", widget: "string", hint: "如 CC BY-NC-SA 4.0"}
-          - {label: "许可链接", name: "url", widget: "string"}
+          - {label: "启用", name: "enable", widget: "boolean", default: false}
+          - label: "模型"
+            name: "model"
+            widget: "object"
+            fields:
+              - {label: "模型路径", name: "path", widget: "string"}
+              - {label: "缩放", name: "scale", widget: "number", min: 0.1, max: 3, step: 0.1, default: 1.0}
+          - label: "位置"
+            name: "position"
+            widget: "object"
+            fields:
+              - {label: "角落", name: "corner", widget: "select", options: ["bottom-left", "bottom-right", "top-left", "top-right"], default: "bottom-left"}
+  - name: "wallpaper"
+    label: "背景壁纸"
+    file: "src/data/cms/wallpaper.json"
+    fields:
+      - {label: "模式", name: "mode", widget: "select", options: ["banner", "full"], default: "banner", hint: "banner=横幅模式 full=全屏背景"}
+      - {label: "启用壁纸切换器", name: "playerEnable", widget: "boolean", default: true}
+      - {label: "桌面壁纸", name: "desktop", widget: "image", hint: "上传到 public/assets/ 下"}
+      - {label: "移动端壁纸", name: "mobile", widget: "image", hint: "上传到 public/assets/ 下"}
+  - name: "effects"
+    label: "特效"
+    file: "src/data/cms/effects.json"
+    fields:
+      - {label: "樱花飘落特效", name: "enable", widget: "boolean", default: false}
+      - {label: "樱花数量", name: "sakuraNum", widget: "number", min: 1, max: 100, default: 21}
+  - name: "banner"
+    label: "首页横幅"
+    file: "src/data/cms/banner.json"
+    fields:
+      - {label: "主标题", name: "title", widget: "string"}
+      - {label: "副标题（打字机轮播）", name: "subtitle", widget: "list", hint: "每条一行，首页轮播显示"}
+  - name: "license"
+    label: "文章许可"
+    file: "src/data/cms/license.json"
+    fields:
+      - {label: "启用", name: "enable", widget: "boolean", default: true}
+      - {label: "许可名称", name: "name", widget: "string", hint: "如 CC BY-NC-SA 4.0"}
+      - {label: "许可链接", name: "url", widget: "string"}
